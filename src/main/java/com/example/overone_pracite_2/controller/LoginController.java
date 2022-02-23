@@ -1,6 +1,5 @@
 package com.example.overone_pracite_2.controller;
 
-import com.example.overone_pracite_2.dto.RegistrationDTO;
 import com.example.overone_pracite_2.entity.User;
 import com.example.overone_pracite_2.exception.RegistrationValidationException;
 import com.example.overone_pracite_2.service.UserService;
