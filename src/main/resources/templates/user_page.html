@@ -7,9 +7,9 @@
 </head>
 <body>
 <div th:object="${user}">
-    <div th:text="*{firstName}"></div>
-    <div th:text="*{secondName}"></div>
-    <div th:text="*{email}"></div>
+    <div>firstName : <span th:text="*{firstName}"></span></div>
+    <div>secondName: <span th:text="*{secondName}"></span></div>
+    <div>email: <span th:text="*{email}"></span></div>
 </div>
 
 </body>

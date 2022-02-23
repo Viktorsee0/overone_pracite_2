@@ -18,14 +18,13 @@ public class UserService {
 
         User user = User.builder()
                 .email(dto.getEmail())
-                .firstName(dto.getPassword())
+                .firstName(dto.getFirstName())
                 .secondName(dto.getSecondName())
                 .password(dto.getPassword())
                 .build();
 
         userRepository.save(user);
     }
-
 
     public Optional<User> getUserByEmail(String email){
         return userRepository.findUserByEmail(email);
