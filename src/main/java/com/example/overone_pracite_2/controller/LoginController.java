@@ -1,6 +1,8 @@
 package com.example.overone_pracite_2.controller;
 
+import com.example.overone_pracite_2.dto.LoginDTO;
 import com.example.overone_pracite_2.entity.User;
+import com.example.overone_pracite_2.exception.LoginValidationException;
 import com.example.overone_pracite_2.exception.RegistrationValidationException;
 import com.example.overone_pracite_2.service.UserService;
 import com.example.overone_pracite_2.validation.LoginValidation;
@@ -22,21 +24,21 @@ public class LoginController {
 
     @GetMapping
     public String showLoginPage(Model model){
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new LoginDTO());
         return "login_page";
     }
 
     @PostMapping
-    public String login(@ModelAttribute("user") User user, Model model) {
+    public String login(@ModelAttribute("user") LoginDTO dto, Model model) {
 
         try {
-            loginValidation.validate(user);
-        } catch (RegistrationValidationException ex) {
+            loginValidation.validate(dto);
+        } catch (LoginValidationException ex) {
             model.addAttribute("message", ex.getMessage());
             return "login_page";
         }
 
-        User currentUser = userService.getUserByEmail(user.getEmail()).get();
+        User currentUser = userService.getUserByEmail(dto.getEmail()).get();
 
         return "redirect:/" + currentUser.getId();
     }

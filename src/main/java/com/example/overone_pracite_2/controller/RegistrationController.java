@@ -31,8 +31,6 @@ public class RegistrationController {
     public String registration(@ModelAttribute("user") RegistrationDTO dto,Model model) {
 
 
-        System.out.println(dto);
-
         try {
 
             registrationValidation.validate(dto);
