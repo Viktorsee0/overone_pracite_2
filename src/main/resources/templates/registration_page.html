@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+
+
+<form th:action="@{/registration}" th:object="${user}" method="POST">
+
+    <div>
+        <input th:field="*{firstName}" type="text" placeholder="firstname">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{firstName}">Incorrect date</p>
+    </div>
+
+    <div>
+        <input th:field="*{secondName}" type="text" placeholder="second name">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{secondName}">Incorrect date</p>
+    </div>
+
+    <div>
+        <input th:field="*{email}" type="text" placeholder="example@gmail.ru">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect date</p>
+    </div>
+
+    <div>
+        <input th:field="*{password} " placeholder="password" type="password">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect date</p>
+    </div>
+
+    <div>
+        <input th:field="*{repassword} " placeholder="repassword" type="password">
+        <p th:if="${#fields.hasErrors('repassword')}" th:errors="*{repassword}">Incorrect date</p>
+    </div>
+
+    <div>
+        <button>Reg</button>
+        <span th:text="${message}"></span>
+    </div>
+
+
+</form>
+
+</body>
+</html>
