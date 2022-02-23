@@ -15,20 +15,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/login")
 @RequiredArgsConstructor
 public class LoginController {
 
     private final LoginValidation loginValidation;
     private final UserService userService;
 
-    @GetMapping
+    @GetMapping({"/", "/login"})
     public String showLoginPage(Model model){
         model.addAttribute("user", new LoginDTO());
         return "login_page";
     }
 
-    @PostMapping
+    @PostMapping("/login")
     public String login(@ModelAttribute("user") LoginDTO dto, Model model) {
 
         try {
@@ -39,8 +38,7 @@ public class LoginController {
         }
 
         User currentUser = userService.getUserByEmail(dto.getEmail()).get();
-
-        return "redirect:/" + currentUser.getId();
+        return "redirect:/user/" + currentUser.getId();
     }
 
 }
