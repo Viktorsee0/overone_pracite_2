@@ -29,18 +29,13 @@ public class RegistrationController {
 
     @PostMapping
     public String registration(@ModelAttribute("user") RegistrationDTO dto,Model model) {
-
-
         try {
-
             registrationValidation.validate(dto);
         } catch (RegistrationValidationException ex) {
             model.addAttribute("message", ex.getMessage());
             return "registration_page";
         }
-
         userService.register(dto);
-
         return "redirect:/successful_registration";
     }
 

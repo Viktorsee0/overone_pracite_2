@@ -7,17 +7,12 @@
 </head>
 <body>
 <form th:action="@{/login}" th:object="${user}" method="POST">
-
     <div>
         <input th:field="*{email}" type="text" placeholder="example@gmail.ru">
-        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect date</p>
     </div>
-
     <div>
         <input th:field="*{password} " placeholder="123" type="password">
-        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect date</p>
     </div>
-
     <div>
         <button>Sign in</button>
         <span th:text="${message}"></span>
@@ -25,8 +20,6 @@
     <div>
         <a href="/registration"></a>
     </div>
-
-
 </form>
 </body>
 </html>

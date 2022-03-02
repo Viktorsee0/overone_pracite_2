@@ -15,7 +15,6 @@ public class UserService {
     private final UserRepository userRepository;
 
     public void register(RegistrationDTO dto){
-
         User user = User.builder()
                 .email(dto.getEmail())
                 .firstName(dto.getFirstName())

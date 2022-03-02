@@ -13,9 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class LoginValidation {
 
-
     private final UserService userService;
-
 
     public void validate(LoginDTO dto){
         Optional<User> userByEmail = userService.getUserByEmail(dto.getEmail());
