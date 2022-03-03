@@ -38,6 +38,7 @@ public class LoginController {
         }
 
         User currentUser = userService.getUserByEmail(dto.getEmail()).get();
+
         return "redirect:/user/" + currentUser.getId();
     }
 
